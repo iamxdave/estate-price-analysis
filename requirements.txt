@@ -1,0 +1,10 @@
+python-decouple
+jupyter
+selenium
+webdriver_manager
+pandas
+numpy
+streamlit
+scikit-learn
+matplotlib
+seaborn
