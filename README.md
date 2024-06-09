@@ -110,6 +110,19 @@
   The application includes several visualizations to help users understand the predictions and the underlying data. These visualizations include bar charts, error charts, and grouped bar charts to compare actual prices with predicted prices across different models.
 </p>
 
+![image](https://github.com/iamxdave/estate-price-analysis/assets/74014874/269c0226-6899-456b-83c0-368ed24991c5)
+
+<p align="justify">
+  Different models comparisson
+</p>
+
+![image](https://github.com/iamxdave/estate-price-analysis/assets/74014874/035e9060-edae-458d-ad50-2d50e65f80ae)
+
+![image](https://github.com/iamxdave/estate-price-analysis/assets/74014874/ca6b0416-b039-4ecd-8d0c-7259ba456af9)
+
+![image](https://github.com/iamxdave/estate-price-analysis/assets/74014874/39a3ab53-6268-4a12-81ce-f2bf1f86a609)
+
+
 <br/>
 
 <!-- CONTRIBUTING -->
