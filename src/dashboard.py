@@ -49,7 +49,7 @@ with tab1:
     st.header('Data Visualization for Searched Query')
     if submit_button:
         st.subheader('Query Results')
-        result_df = query_model(df, models[model_input], Location=location_input, Rooms=rooms_input, Floor=floor_input, Area_range=area_range_input)
+        result_df = query_model(df, models[model_input], Location=location_input, Rooms=rooms_input, Floor=floor_input, Area_range=(float(min_area), float(max_area)))
         if result_df is not None:
             st.write(result_df)
 
@@ -73,8 +73,9 @@ with tab1:
         st.write('Type in the query parameters and click Submit to see the results.')
 
 with tab2:
+    entire_df = query_model(df, models[model_input], Location='', Rooms='Wszystkie opcje', Floor='Wszystkie opcje', Area_range=area_range_input)
     # Encode categorical columns for visualization
-    encoded_df, mappings = encode_categorical_columns(df.copy(), ['Rooms', 'Floor'])
+    encoded_df, mappings = encode_categorical_columns(entire_df.copy(), ['Rooms', 'Floor'])
 
     # Decode columns to display text values
     decoded_df = decode_categorical_columns(encoded_df.copy(), mappings)
@@ -86,14 +87,14 @@ with tab2:
 
     # Grouped Bar Charts for entire dataset
     st.header('Grouped Data Visualization for Entire Dataset')
-    show_grouped_bar_chart(df, 'Rooms', 'Price')
-    show_grouped_bar_chart(df, 'Floor', 'Price')
+    show_grouped_bar_chart(decoded_df, 'Rooms', 'Price', 'Predicted Price')
+    show_grouped_bar_chart(decoded_df, 'Floor', 'Price', 'Predicted Price')
 
     # Group by state and city for entire dataset
     st.header('Location-based Grouping for Entire Dataset')
-    df['State'] = df['Location'].apply(lambda x: x.split(',')[-1].strip())
-    df = df[df['State'].str.islower()]
-    show_grouped_bar_chart(df, 'State', 'Price')
+    entire_df['State'] = entire_df['Location'].apply(lambda x: x.split(',')[-1].strip())
+    entire_df = entire_df[entire_df['State'].str.islower()]
+    show_grouped_bar_chart(entire_df, 'State', 'Price', 'Predicted Price')
 
 with tab3:
     st.header('Model Comparison')

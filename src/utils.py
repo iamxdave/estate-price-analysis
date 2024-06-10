@@ -28,8 +28,8 @@ def train_models(data):
     # Flatten data and preprocess
     df = pd.DataFrame(flatten_data(data))
 
-    # Convert 'N/A' to NaN in the target variable
-    df['Price'] = pd.to_numeric(df['Price'], errors='coerce')  # Convert to numeric, coerce errors to NaN
+    # Convert 'Price' to numeric, coerce errors to NaN
+    df['Price'] = pd.to_numeric(df['Price'], errors='coerce')
 
     # Convert 'Area' column to numeric type
     df['Area'] = pd.to_numeric(df['Area'], errors='coerce')
