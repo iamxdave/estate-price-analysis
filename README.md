@@ -78,7 +78,7 @@
     ```
 5. Start the application:
     ```
-    streamlit run src/dashboard.py
+    streamlit run dashboard.py
     ```
 
 <br/>
